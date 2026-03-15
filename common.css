@@ -241,3 +241,57 @@ h1 {
   color: var(--text-sub);
   padding: 40px 0;
 }
+
+/* ===== 푸터 ===== */
+[data-theme="dark"]  { --footer-bg: #0d0d18; --footer-border: #2a2a3a; --footer-link: #888; --footer-link-hover: #f0c040; }
+[data-theme="light"] { --footer-bg: #ececf4; --footer-border: #d0d0de; --footer-link: #888; --footer-link-hover: #c4920a; }
+
+.site-footer {
+  width: 100%;
+  max-width: 700px;
+  margin: 32px auto 0;
+  padding: 20px 0 40px;
+  border-top: 1px solid var(--footer-border);
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  font-size: 0.85rem;
+  color: var(--footer-link);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover,
+.footer-links a.active {
+  color: var(--footer-link-hover);
+}
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: var(--text-sub);
+}
+
+/* ===== 콘텐츠 설명 박스 ===== */
+.info-box {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-sub);
+}
+
+.info-box strong {
+  color: var(--text);
+}

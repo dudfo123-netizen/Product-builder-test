@@ -1,0 +1,110 @@
+/* ===== 정책/소개 페이지 전용 스타일 ===== */
+
+[data-theme="dark"] {
+  --section-border: #2a2a3a;
+  --h2-color: #f0c040;
+  --h3-color: #aaa;
+  --link-color: #60a5fa;
+  --link-hover: #93c5fd;
+}
+
+[data-theme="light"] {
+  --section-border: #e0e0ea;
+  --h2-color: #c4920a;
+  --h3-color: #555;
+  --link-color: #2563eb;
+  --link-hover: #1d4ed8;
+}
+
+.policy-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  animation: slideIn 0.35s ease both;
+  margin-bottom: 24px;
+}
+
+section {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--section-border);
+}
+
+section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.policy-card h2 {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 1.2rem;
+  color: var(--h2-color);
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.policy-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--h3-color);
+  margin: 12px 0 6px;
+}
+
+.policy-card p {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.policy-card ul {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.policy-card ul li {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.policy-card a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.policy-card a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* ===== About 페이지 피처 블록 ===== */
+.about-feature {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 16px;
+  border: 1px solid var(--section-border);
+  border-radius: 12px;
+}
+
+.feature-icon {
+  font-size: 2.2rem;
+  min-width: 48px;
+  text-align: center;
+}
+
+.feature-body h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--h2-color);
+  margin-bottom: 6px;
+  margin-top: 0;
+}
+
+.feature-body p {
+  margin-bottom: 0;
+}

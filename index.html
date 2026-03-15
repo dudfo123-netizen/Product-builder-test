@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>로또 번호 추천</title>
+  <title>로또 번호 추천 | 럭키픽 (LuckyPick)</title>
+  <meta name="description" content="럭키픽에서 무료로 로또 번호를 추천받으세요. Fisher-Yates 알고리즘으로 편향 없이 5게임을 한 번에 생성하고, 보너스 번호까지 확인할 수 있습니다.">
+  <meta property="og:title" content="로또 번호 추천 | 럭키픽">
+  <meta property="og:description" content="무료 로또 번호 추천 서비스. 5게임을 한 번에 생성, 저장 목록 지원.">
+  <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
   <link href="common.css" rel="stylesheet">
@@ -25,6 +29,10 @@
       <h1>🍀 로또 번호 추천</h1>
       <p class="subtitle">버튼을 눌러 5게임을 한꺼번에 추천받아보세요</p>
     </header>
+
+    <div class="info-box">
+      <strong>이용 방법:</strong> 아래 '번호 생성' 버튼을 누르면 1~45번 사이의 숫자 중 무작위로 6개 번호와 보너스 번호를 추첨합니다. 한 번에 5게임이 생성되며, 마음에 드는 조합은 '저장하기'로 보관해 두었다가 '저장 목록' 탭에서 언제든 다시 확인할 수 있습니다.
+    </div>
 
     <div class="tabs">
       <button class="tab active" data-tab="generate">번호 추천</button>
@@ -51,6 +59,16 @@
     </div>
   </div>
 
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="about.html">서비스 소개</a>
+      <a href="privacy.html">개인정보처리방침</a>
+      <a href="contact.html">제휴 문의</a>
+    </div>
+    <p class="footer-copy">© 2026 LuckyPick. All rights reserved.</p>
+  </footer>
+
+  <script src="common.js"></script>
   <script src="lotto.js"></script>
 </body>
 </html>

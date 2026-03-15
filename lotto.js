@@ -1,13 +1,3 @@
-// ===== 테마 토글 =====
-const themeToggle = document.getElementById('theme-toggle');
-const html = document.documentElement;
-
-themeToggle.addEventListener('click', () => {
-  const isDark = html.getAttribute('data-theme') === 'dark';
-  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  themeToggle.textContent = isDark ? '🌙 다크모드' : '☀️ 라이트모드';
-});
-
 // ===== 탭 전환 =====
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
