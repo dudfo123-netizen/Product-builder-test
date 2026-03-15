@@ -1,18 +1,48 @@
 <!DOCTYPE html>
-<html lang="ko" data-theme="light">
+<html lang="ko" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lotto Number Generator</title>
-  <link href='/lotto.css' rel='stylesheet'>
+  <title>로또 번호 추천</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <link href="lotto.css" rel="stylesheet">
 </head>
 <body>
-  <button id="theme-toggle">🌙 다크모드</button>
-  <div class="container">
-    <h1>로또 번호 생성기</h1>
-    <button id="generator-btn">번호 생성</button>
-    <div id="lotto-numbers" class="lotto-numbers"></div>
+
+  <button id="theme-toggle">☀️ 라이트모드</button>
+
+  <div class="wrapper">
+    <header>
+      <h1>🍀 로또 번호 추천</h1>
+      <p class="subtitle">버튼을 눌러 5게임을 한꺼번에 추천받아보세요</p>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="generate">번호 추천</button>
+      <button class="tab" data-tab="saved">저장 목록</button>
+    </div>
+
+    <!-- 번호 추천 탭 -->
+    <div id="tab-generate" class="tab-content active">
+      <div id="games-container"></div>
+      <div class="actions">
+        <button id="pick-btn">🎲 번호 생성</button>
+        <button id="save-btn" style="display:none">💾 저장하기</button>
+      </div>
+    </div>
+
+    <!-- 저장 목록 탭 -->
+    <div id="tab-saved" class="tab-content">
+      <div id="saved-container">
+        <p class="empty-msg">저장된 번호가 없습니다.</p>
+      </div>
+      <div class="actions">
+        <button id="clear-btn">🗑️ 전체 삭제</button>
+      </div>
+    </div>
   </div>
-  <script defer type="text/javascript" src="/lotto.js"></script>
+
+  <script src="lotto.js"></script>
 </body>
 </html>
