@@ -1,0 +1,174 @@
+/* ===== 제휴 문의 전용 스타일 ===== */
+
+[data-theme="dark"] {
+  --input-bg: #1a1a2a;
+  --input-border: #2a2a3a;
+  --input-border-focus: #f0c040;
+  --input-text: #e0e0e0;
+  --input-placeholder: #555;
+  --label-text: #bbb;
+  --required-color: #f87171;
+  --card-shadow: rgba(0,0,0,0.4);
+  --success-bg: #0f1f0f;
+  --success-border: #22c55e;
+  --success-text: #4ade80;
+}
+
+[data-theme="light"] {
+  --input-bg: #f8f8fc;
+  --input-border: #d0d0de;
+  --input-border-focus: #c4920a;
+  --input-text: #1a1a2e;
+  --input-placeholder: #aaa;
+  --label-text: #444;
+  --required-color: #dc2626;
+  --card-shadow: rgba(0,0,0,0.08);
+  --success-bg: #f0fff4;
+  --success-border: #22c55e;
+  --success-text: #16a34a;
+}
+
+/* ===== 카드 ===== */
+.contact-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 24px var(--card-shadow);
+  animation: slideIn 0.35s ease both;
+}
+
+/* ===== 폼 그룹 ===== */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--label-text);
+  margin-bottom: 7px;
+}
+
+.required {
+  color: var(--required-color);
+  margin-left: 2px;
+}
+
+/* ===== 입력 필드 공통 ===== */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--input-text);
+  font-size: 0.95rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--input-placeholder);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 3px rgba(240,192,64,0.15);
+}
+
+/* select 화살표 */
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+/* ===== 제출 버튼 ===== */
+#submit-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 4px;
+  border-radius: 10px;
+  border: none;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+#submit-btn:hover { opacity: 0.88; }
+#submit-btn:active { transform: scale(0.98); }
+#submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ===== 성공 메시지 ===== */
+.success-msg {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--success-bg);
+  border: 1px solid var(--success-border);
+  border-radius: 14px;
+  animation: slideIn 0.4s ease both;
+}
+
+.success-icon {
+  font-size: 3.5rem;
+  margin-bottom: 16px;
+  animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.4); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.success-msg h2 {
+  font-family: 'Black Han Sans', sans-serif;
+  color: var(--success-text);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.success-msg p {
+  color: var(--text-sub);
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+
+.success-msg button {
+  padding: 10px 24px;
+  border-radius: 20px;
+  border: 1px solid var(--success-border);
+  background: transparent;
+  color: var(--success-text);
+  font-size: 0.9rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.success-msg button:hover {
+  background: var(--success-bg);
+  opacity: 0.8;
+}
