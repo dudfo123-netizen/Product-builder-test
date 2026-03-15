@@ -55,31 +55,115 @@
   font-weight: 700;
 }
 
-/* 식사 카드 */
+/* ===== 랭킹 라벨 ===== */
+[data-theme="dark"] {
+  --rank1-bg: #12121a;
+  --rank1-border: #f0c040;
+  --rank2-bg: #12121a;
+  --rank2-border: #9ca3af;
+  --rank3-bg: #12121a;
+  --rank3-border: #cd7c2f;
+  --rank1-label: #f0c040;
+  --rank2-label: #9ca3af;
+  --rank3-label: #cd7c2f;
+}
+
+[data-theme="light"] {
+  --rank1-bg: #fff;
+  --rank1-border: #f0c040;
+  --rank2-bg: #fff;
+  --rank2-border: #9ca3af;
+  --rank3-bg: #fff;
+  --rank3-border: #cd7c2f;
+  --rank1-label: #b8900a;
+  --rank2-label: #6b7280;
+  --rank3-label: #9a5a1a;
+}
+
+/* ===== 카드 컨테이너 ===== */
+.rank-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+/* ===== 공통 카드 ===== */
 .meal-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 16px;
-  animation-delay: calc(var(--i) * 80ms);
+  text-align: center;
+  border-radius: 14px;
+  padding: 20px 16px;
+  animation: slideIn 0.4s ease both;
+}
+
+/* ===== 1등 카드 (크게, 전체 너비) ===== */
+.meal-card.rank-1 {
+  background: var(--rank1-bg);
+  border: 2px solid var(--rank1-border);
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 30px 20px;
+  animation-delay: 0ms;
+}
+
+.meal-card.rank-1 .rank-label { color: var(--rank1-label); font-size: 1rem; }
+.meal-card.rank-1 .meal-emoji { font-size: 5rem; }
+.meal-card.rank-1 .meal-name  { font-size: 1.8rem; }
+.meal-card.rank-1 .meal-tag   { font-size: 0.8rem; padding: 4px 12px; }
+.meal-card.rank-1 .meal-badge { font-size: 0.85rem; }
+
+/* ===== 2, 3등 카드 (절반 크기) ===== */
+.meal-card.rank-2,
+.meal-card.rank-3 {
+  flex: 1;
+  min-width: 0;
+}
+
+.meal-card.rank-2 {
+  background: var(--rank2-bg);
+  border: 1.5px solid var(--rank2-border);
+  animation-delay: 120ms;
+}
+
+.meal-card.rank-3 {
+  background: var(--rank3-bg);
+  border: 1.5px solid var(--rank3-border);
+  animation-delay: 200ms;
+}
+
+.meal-card.rank-2 .rank-label,
+.meal-card.rank-3 .rank-label { font-size: 0.8rem; }
+.meal-card.rank-2 .rank-label { color: var(--rank2-label); }
+.meal-card.rank-3 .rank-label { color: var(--rank3-label); }
+
+/* ===== 공통 내부 요소 ===== */
+.rank-label {
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
 }
 
 .meal-emoji {
   font-size: 2.6rem;
-  min-width: 56px;
-  text-align: center;
+  margin-bottom: 8px;
   animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
-  animation-delay: calc(var(--i) * 80ms + 100ms);
 }
+
+.meal-card.rank-1 .meal-emoji { animation-delay: 60ms; }
+.meal-card.rank-2 .meal-emoji { animation-delay: 180ms; }
+.meal-card.rank-3 .meal-emoji { animation-delay: 260ms; }
 
 @keyframes popIn {
   from { opacity: 0; transform: scale(0.4) rotate(-20deg); }
   to   { opacity: 1; transform: scale(1) rotate(0deg); }
 }
 
-.meal-info { flex: 1; }
+.meal-info { width: 100%; }
 
 .meal-name {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--meal-name);
   margin-bottom: 6px;
@@ -88,26 +172,28 @@
 .meal-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 8px;
 }
 
 .meal-tag {
-  padding: 3px 10px;
+  padding: 3px 8px;
   border-radius: 12px;
   border: 1px solid var(--meal-tag-border);
   background: var(--meal-tag-bg);
   color: var(--meal-tag-text);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
 }
 
 .meal-badge {
-  padding: 5px 12px;
+  display: inline-block;
+  padding: 4px 10px;
   border-radius: 20px;
   background: var(--badge-bg);
   color: var(--badge-text);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  white-space: nowrap;
 }
 
 /* 저장 목록 식사 행 */

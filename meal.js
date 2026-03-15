@@ -105,6 +105,31 @@ function shuffle(arr) {
   return a;
 }
 
+// ===== 카드 생성 헬퍼 =====
+const RANK_INFO = [
+  { label: '🥇 1등', cls: 'rank-1' },
+  { label: '🥈 2등', cls: 'rank-2' },
+  { label: '🥉 3등', cls: 'rank-3' },
+];
+
+function makeCard(meal, rank) {
+  const { label, cls } = RANK_INFO[rank];
+  const card = document.createElement('div');
+  card.className = `meal-card ${cls}`;
+  card.innerHTML = `
+    <div class="rank-label">${label}</div>
+    <div class="meal-emoji">${meal.emoji}</div>
+    <div class="meal-info">
+      <div class="meal-name">${meal.name}</div>
+      <div class="meal-tags">
+        ${meal.tags.map(t => `<span class="meal-tag">${t}</span>`).join('')}
+      </div>
+      <div class="meal-badge">${meal.cat}</div>
+    </div>
+  `;
+  return card;
+}
+
 // ===== 추천 생성 =====
 document.getElementById('pick-btn').addEventListener('click', () => {
   const pool = selectedCat === '전체' ? MEALS : MEALS.filter(m => m.cat === selectedCat);
@@ -116,24 +141,17 @@ document.getElementById('pick-btn').addEventListener('click', () => {
   const container = document.getElementById('meals-container');
   container.innerHTML = '';
 
-  currentMeals.forEach((meal, i) => {
-    const card = document.createElement('div');
-    card.className = 'meal-card';
-    card.style.setProperty('--i', i);
+  // 1등: 단독 전체 너비
+  container.appendChild(makeCard(currentMeals[0], 0));
 
-    card.innerHTML = `
-      <div class="meal-emoji" style="animation-delay:${i * 80 + 100}ms">${meal.emoji}</div>
-      <div class="meal-info">
-        <div class="meal-name">${meal.name}</div>
-        <div class="meal-tags">
-          ${meal.tags.map(t => `<span class="meal-tag">${t}</span>`).join('')}
-        </div>
-      </div>
-      <div class="meal-badge">${meal.cat}</div>
-    `;
-
-    container.appendChild(card);
-  });
+  // 2, 3등: 나란히 절반 크기
+  if (currentMeals.length > 1) {
+    const row = document.createElement('div');
+    row.className = 'rank-row';
+    if (currentMeals[1]) row.appendChild(makeCard(currentMeals[1], 1));
+    if (currentMeals[2]) row.appendChild(makeCard(currentMeals[2], 2));
+    container.appendChild(row);
+  }
 
   document.getElementById('save-btn').style.display = 'block';
   document.getElementById('save-btn').textContent = '💾 저장하기';
