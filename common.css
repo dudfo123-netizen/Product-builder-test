@@ -62,8 +62,9 @@ body {
   color: var(--text);
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  padding: 40px 16px 60px;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px 0;
   transition: background 0.3s, color 0.3s;
 }
 
@@ -87,6 +88,7 @@ body {
 .wrapper {
   width: 100%;
   max-width: 700px;
+  flex: 1;
 }
 
 /* ===== 네비게이션 ===== */
@@ -249,8 +251,8 @@ h1 {
 .site-footer {
   width: 100%;
   max-width: 700px;
-  margin: 32px auto 0;
-  padding: 20px 0 40px;
+  margin-top: 32px;
+  padding: 20px 16px 40px;
   border-top: 1px solid var(--footer-border);
   text-align: center;
 }
