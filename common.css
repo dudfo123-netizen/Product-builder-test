@@ -1,0 +1,243 @@
+/* ===== 공통 테마 변수 ===== */
+[data-theme="dark"] {
+  --bg: #0a0a0f;
+  --card-bg: #12121a;
+  --card-border: #2a2a3a;
+  --text: #e0e0e0;
+  --text-sub: #888;
+  --title-color: #f0c040;
+  --btn-primary-bg: linear-gradient(135deg, #f0c040, #ff6b35);
+  --btn-primary-text: #0a0a0f;
+  --btn-save-bg: #1a3a2a;
+  --btn-save-border: #2a6a4a;
+  --btn-save-text: #4ade80;
+  --btn-clear-bg: #3a1a1a;
+  --btn-clear-border: #6a2a2a;
+  --btn-clear-text: #f87171;
+  --tab-bg: #12121a;
+  --tab-active-bg: #f0c040;
+  --tab-active-text: #0a0a0f;
+  --tab-text: #888;
+  --toggle-bg: #e0e0e0;
+  --toggle-text: #0a0a0f;
+  --nav-bg: #12121a;
+  --nav-border: #2a2a3a;
+  --nav-text: #888;
+  --nav-active-text: #f0c040;
+}
+
+[data-theme="light"] {
+  --bg: #f4f4f8;
+  --card-bg: #ffffff;
+  --card-border: #ddd;
+  --text: #1a1a2e;
+  --text-sub: #666;
+  --title-color: #c4920a;
+  --btn-primary-bg: linear-gradient(135deg, #f0c040, #ff6b35);
+  --btn-primary-text: #fff;
+  --btn-save-bg: #e8f8ee;
+  --btn-save-border: #4ade80;
+  --btn-save-text: #16a34a;
+  --btn-clear-bg: #fee2e2;
+  --btn-clear-border: #f87171;
+  --btn-clear-text: #dc2626;
+  --tab-bg: #e4e4ec;
+  --tab-active-bg: #f0c040;
+  --tab-active-text: #1a1a2e;
+  --tab-text: #555;
+  --toggle-bg: #1a1a2e;
+  --toggle-text: #fff;
+  --nav-bg: #ffffff;
+  --nav-border: #ddd;
+  --nav-text: #888;
+  --nav-active-text: #c4920a;
+}
+
+/* ===== 리셋 ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px 60px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ===== 테마 토글 ===== */
+#theme-toggle {
+  position: fixed;
+  top: 14px;
+  right: 16px;
+  padding: 7px 15px;
+  border-radius: 20px;
+  border: none;
+  background: var(--toggle-bg);
+  color: var(--toggle-text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  z-index: 100;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ===== 레이아웃 ===== */
+.wrapper {
+  width: 100%;
+  max-width: 700px;
+}
+
+/* ===== 네비게이션 ===== */
+.site-nav {
+  display: flex;
+  gap: 8px;
+  background: var(--nav-bg);
+  border: 1px solid var(--nav-border);
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 24px;
+}
+
+.site-nav a {
+  flex: 1;
+  text-align: center;
+  padding: 9px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--nav-text);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.site-nav a.active {
+  background: var(--tab-active-bg);
+  color: var(--tab-active-text);
+}
+
+/* ===== 헤더 ===== */
+header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+h1 {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  color: var(--title-color);
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: var(--text-sub);
+  font-size: 0.95rem;
+}
+
+/* ===== 탭 ===== */
+.tabs {
+  display: flex;
+  background: var(--tab-bg);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 20px;
+  gap: 4px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--tab-text);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab.active {
+  background: var(--tab-active-bg);
+  color: var(--tab-active-text);
+  font-weight: 700;
+}
+
+/* ===== 탭 콘텐츠 ===== */
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ===== 버튼 ===== */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.actions button {
+  flex: 1;
+  padding: 13px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.actions button:active { transform: scale(0.97); }
+
+#pick-btn {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+#save-btn {
+  background: var(--btn-save-bg);
+  border: 1px solid var(--btn-save-border);
+  color: var(--btn-save-text);
+}
+
+#clear-btn {
+  background: var(--btn-clear-bg);
+  border: 1px solid var(--btn-clear-border);
+  color: var(--btn-clear-text);
+}
+
+/* ===== 카드 ===== */
+.game-card, .meal-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  animation: slideIn 0.35s ease both;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== 저장 목록 ===== */
+.saved-item {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+.saved-meta {
+  font-size: 0.78rem;
+  color: var(--text-sub);
+  margin-bottom: 10px;
+}
+
+.empty-msg {
+  text-align: center;
+  color: var(--text-sub);
+  padding: 40px 0;
+}

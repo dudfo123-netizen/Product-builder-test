@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>식사 추천</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <link href="common.css" rel="stylesheet">
+  <link href="meal.css" rel="stylesheet">
+</head>
+<body>
+
+  <button id="theme-toggle">☀️ 라이트모드</button>
+
+  <div class="wrapper">
+    <nav class="site-nav">
+      <a href="index.html">🍀 로또</a>
+      <a href="meal.html" class="active">🍽️ 식사</a>
+    </nav>
+
+    <header>
+      <h1>🍽️ 식사 추천</h1>
+      <p class="subtitle">오늘 뭐 먹을지 고민된다면? 버튼을 눌러보세요</p>
+    </header>
+
+    <!-- 카테고리 필터 -->
+    <div class="category-bar">
+      <button class="cat-btn active" data-cat="전체">전체</button>
+      <button class="cat-btn" data-cat="한식">🇰🇷 한식</button>
+      <button class="cat-btn" data-cat="중식">🥢 중식</button>
+      <button class="cat-btn" data-cat="일식">🍣 일식</button>
+      <button class="cat-btn" data-cat="양식">🍝 양식</button>
+      <button class="cat-btn" data-cat="분식">🌮 분식</button>
+      <button class="cat-btn" data-cat="기타">🍗 기타</button>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="recommend">식사 추천</button>
+      <button class="tab" data-tab="saved">저장 목록</button>
+    </div>
+
+    <!-- 식사 추천 탭 -->
+    <div id="tab-recommend" class="tab-content active">
+      <div id="meals-container"></div>
+      <div class="actions">
+        <button id="pick-btn">🎲 추천받기</button>
+        <button id="save-btn" style="display:none">💾 저장하기</button>
+      </div>
+    </div>
+
+    <!-- 저장 목록 탭 -->
+    <div id="tab-saved" class="tab-content">
+      <div id="saved-container">
+        <p class="empty-msg">저장된 추천이 없습니다.</p>
+      </div>
+      <div class="actions">
+        <button id="clear-btn">🗑️ 전체 삭제</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="meal.js"></script>
+</body>
+</html>

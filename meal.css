@@ -1,0 +1,126 @@
+/* ===== 식사 추천 전용 스타일 ===== */
+
+[data-theme="dark"] {
+  --cat-bg: #1a1a2a;
+  --cat-border: #2a2a3a;
+  --cat-text: #aaa;
+  --cat-active-bg: #f0c040;
+  --cat-active-text: #0a0a0f;
+  --meal-name: #f0f0f0;
+  --meal-tag-bg: #1e2a1e;
+  --meal-tag-border: #2a4a2a;
+  --meal-tag-text: #4ade80;
+  --badge-bg: rgba(240,192,64,0.15);
+  --badge-text: #f0c040;
+}
+
+[data-theme="light"] {
+  --cat-bg: #ececf4;
+  --cat-border: #d0d0de;
+  --cat-text: #666;
+  --cat-active-bg: #f0c040;
+  --cat-active-text: #1a1a2e;
+  --meal-name: #1a1a2e;
+  --meal-tag-bg: #e8f8ee;
+  --meal-tag-border: #b6e8c8;
+  --meal-tag-text: #16a34a;
+  --badge-bg: rgba(196,146,10,0.12);
+  --badge-text: #c4920a;
+}
+
+/* 카테고리 필터 바 */
+.category-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.cat-btn {
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--cat-border);
+  background: var(--cat-bg);
+  color: var(--cat-text);
+  font-size: 0.85rem;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.cat-btn.active {
+  background: var(--cat-active-bg);
+  color: var(--cat-active-text);
+  border-color: var(--cat-active-bg);
+  font-weight: 700;
+}
+
+/* 식사 카드 */
+.meal-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  animation-delay: calc(var(--i) * 80ms);
+}
+
+.meal-emoji {
+  font-size: 2.6rem;
+  min-width: 56px;
+  text-align: center;
+  animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+  animation-delay: calc(var(--i) * 80ms + 100ms);
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.4) rotate(-20deg); }
+  to   { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+.meal-info { flex: 1; }
+
+.meal-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--meal-name);
+  margin-bottom: 6px;
+}
+
+.meal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.meal-tag {
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--meal-tag-border);
+  background: var(--meal-tag-bg);
+  color: var(--meal-tag-text);
+  font-size: 0.75rem;
+}
+
+.meal-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* 저장 목록 식사 행 */
+.saved-meal-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.saved-meal-row:last-child { border-bottom: none; }
+
+.saved-meal-emoji { font-size: 1.5rem; min-width: 32px; }
+.saved-meal-name { font-weight: 700; flex: 1; }
+.saved-meal-cat { font-size: 0.78rem; color: var(--text-sub); }
