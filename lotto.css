@@ -1,38 +1,108 @@
+/* 라이트 모드 (기본) */
+:root, [data-theme="light"] {
+  --bg: #f0f0f0;
+  --container-bg: #ffffff;
+  --text: #222222;
+  --btn-bg: #ffffff;
+  --btn-border: #ccc;
+  --btn-text: #222222;
+  --ball-bg: #e0e0e0;
+  --ball-text: #222222;
+  --toggle-bg: #333;
+  --toggle-text: #fff;
+}
+
+/* 다크 모드 */
+[data-theme="dark"] {
+  --bg: #1a1a2e;
+  --container-bg: #16213e;
+  --text: #e0e0e0;
+  --btn-bg: #0f3460;
+  --btn-border: #444;
+  --btn-text: #e0e0e0;
+  --ball-bg: #0f3460;
+  --ball-text: #ffffff;
+  --toggle-bg: #e0e0e0;
+  --toggle-text: #1a1a2e;
+}
+
 body {
   font-family: sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f0f0;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0;
 }
 
 .container {
   text-align: center;
+  background-color: var(--container-bg);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transition: background-color 0.3s;
+}
+
+h1 {
+  margin-bottom: 24px;
 }
 
 #generator-btn {
-  padding: 10px 20px;
-  font-size: 1.2rem;
+  padding: 10px 24px;
+  font-size: 1.1rem;
   cursor: pointer;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid var(--btn-border);
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#generator-btn:hover {
+  opacity: 0.8;
 }
 
 .lotto-numbers {
   display: flex;
-  margin-top: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  gap: 8px;
 }
 
 .lotto-number {
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background-color: #eee;
+  background-color: var(--ball-bg);
+  color: var(--ball-text);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
-  margin: 0 5px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--toggle-bg);
+  color: var(--toggle-text);
+  transition: background-color 0.3s, color 0.3s;
+  z-index: 100;
+}
+
+#theme-toggle:hover {
+  opacity: 0.8;
 }
